@@ -136,6 +136,46 @@ const App: FunctionComponent = () => {
     };
   };
 
+  document.addEventListener('click', setOperatorColor)
+
+  function setOperatorColor() {
+    const division = document.getElementById('division')
+    const multiplication = document.getElementById('multiplication')
+    const subtraction = document.getElementById('subtraction')
+    const addition = document.getElementById('addition')
+  
+    console.log(division);
+    
+    function removeAttribute() {
+      division?.removeAttribute('style')
+      multiplication?.removeAttribute('style')
+      subtraction?.removeAttribute('style')
+      addition?.removeAttribute('style')
+    }
+  
+    switch(operator) {
+      case'/':
+        removeAttribute()
+        division?.setAttribute('style', 'background: white; color: #ff9a0a')
+        break;
+      case'X':
+        removeAttribute()
+        multiplication?.setAttribute('style', 'background: white; color: #ff9a0a')
+        break;
+      case'-':
+        removeAttribute()
+        subtraction?.setAttribute('style', 'background: white; color: #ff9a0a')
+        break;
+      case'+':
+        removeAttribute()
+        addition?.setAttribute('style', 'background: white; color: #ff9a0a')
+        break;
+      case'':
+        removeAttribute()
+        break;
+    }
+  }
+
   return (
     <Main>
       <Display>{display}</Display>
